@@ -1,0 +1,127 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="antonch (generated)" id="1504453911673-1">
+        <createSequence sequenceName="hibernate_sequence"/>
+    </changeSet>
+
+    <changeSet author="antonch (generated)" id="1504453911673-2">
+        <createTable tableName="album">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="album_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="release_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="singer_id" type="INT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="antonch (generated)" id="1504453911673-3">
+        <createTable tableName="composition">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="composition_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="composer_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="writer_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="antonch (generated)" id="1504453911673-4">
+        <createTable tableName="person">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="person_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="antonch (generated)" id="1504453911673-5">
+        <createTable tableName="singer">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="singer_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="singer_type" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="antonch (generated)" id="1504453911673-6">
+        <createTable tableName="singer_structure">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="singer_structure_pkey"/>
+            </column>
+            <column name="date_from" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="date_till" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="person_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="singer_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="antonch (generated)" id="1504453911673-7">
+        <createTable tableName="track">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="track_pkey"/>
+            </column>
+            <column name="song_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="album_id" type="INT"/>
+            <column name="composition_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="antonch (generated)" id="1504453911673-8">
+        <createTable tableName="track_singer">
+            <column name="track_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="singer_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+ 
+    <changeSet author="antonch (generated)" id="1504453911673-9">
+        <addForeignKeyConstraint baseColumnNames="singer_id" baseTableName="album" constraintName="fk1imrvvcsp892ggu1tlcbhavjm" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="singer"/>
+    </changeSet>
+    <changeSet author="antonch (generated)" id="1504453911673-10">
+        <addForeignKeyConstraint baseColumnNames="track_id" baseTableName="track_singer" constraintName="fk1q2lj5twtdoy966w1r57illwh" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="track"/>
+    </changeSet>
+    <changeSet author="antonch (generated)" id="1504453911673-11">
+        <addForeignKeyConstraint baseColumnNames="composer_id" baseTableName="composition" constraintName="fk4n6pnhegqg126m2renfcrtyys" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="person"/>
+    </changeSet>
+    <changeSet author="antonch (generated)" id="1504453911673-12">
+        <addForeignKeyConstraint baseColumnNames="writer_id" baseTableName="composition" constraintName="fk4tjbwsh56nitcl54lsqba0rlj" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="person"/>
+    </changeSet>
+    <changeSet author="antonch (generated)" id="1504453911673-13">
+        <addForeignKeyConstraint baseColumnNames="singer_id" baseTableName="singer_structure" constraintName="fk4x7m60k9tgk1oo7p3n3wwgr2j" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="singer"/>
+    </changeSet>
+    <changeSet author="antonch (generated)" id="1504453911673-14">
+        <addForeignKeyConstraint baseColumnNames="singer_id" baseTableName="track_singer" constraintName="fk7r8d7d2ll4h690v5ouweoumbd" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="singer"/>
+    </changeSet>
+    <changeSet author="antonch (generated)" id="1504453911673-15">
+        <addForeignKeyConstraint baseColumnNames="album_id" baseTableName="track" constraintName="fkaxm9pbgk7ptorfyk3o6911q05" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="album"/>
+    </changeSet>
+    <changeSet author="antonch (generated)" id="1504453911673-16">
+        <addForeignKeyConstraint baseColumnNames="person_id" baseTableName="singer_structure" constraintName="fkbsb6r14ymndxq1sqwcauijadg" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="person"/>
+    </changeSet>
+    <changeSet author="antonch (generated)" id="1504453911673-17">
+        <addForeignKeyConstraint baseColumnNames="composition_id" baseTableName="track" constraintName="fktwwkjrgxakow80p0g5kfplv4" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="composition"/>
+    </changeSet>
+
+    <include file="db/changelog/initialdata/initialdata.xml" />
+
+</databaseChangeLog>

@@ -1,0 +1,45 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.6.RELEASE'
+		liquibasePluginVersion = '1.1.1'
+	}
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath ("org.liquibase:liquibase-gradle-plugin:${liquibasePluginVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'org.liquibase.gradle'
+
+jar {
+    baseName = 'music'
+    version =  '0.1.0'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+bootRun {
+    addResources = true
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("org.springframework.boot:spring-boot-devtools")
+	compile("com.google.guava:guava:19+")
+	compile('org.liquibase:liquibase-core')
+    runtime("org.hsqldb:hsqldb:2.2.8")
+	runtime('org.postgresql:postgresql')
+    testCompile("junit:junit:4.12")
+	testCompile('org.springframework.boot:spring-boot-starter-test') 
+}
