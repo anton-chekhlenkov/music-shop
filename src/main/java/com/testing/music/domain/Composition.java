@@ -7,6 +7,17 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+/**
+ * Композиция представляет собой своего рода комбинацию нот и текста песни,
+ * созданных композитором и автором текста соответственно. Результатом
+ * исполнения композиции является трек (<code>Track</code>). Композиция может
+ * быть исполнена сколько угодно раз, т.е. одному объекту
+ * <code>Composition</code> может соответствовать множество объектов
+ * <code>Track</code>.
+ * 
+ * @author antonch
+ * @since 02.09.2017
+ */
 @Entity
 public class Composition {
 
@@ -61,7 +72,9 @@ public class Composition {
 
 	@Override
 	public String toString() {
-		return "Composition [id=" + id + ", name=" + name + ", writer=" + writer + ", composer=" + composer + "]";
+		return String.format(
+				"Composition [id=%d, name=%s, writer=%s, composer=%s]", id,
+				name, writer, composer);
 	}
 
 	@Override

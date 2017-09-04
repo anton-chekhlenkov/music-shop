@@ -13,6 +13,15 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+/**
+ * Трек <code>Track</code> является результатом исполнения(выпуска) некоторой
+ * композиции каким либо солистом, группой или комбинацией солистов и/или групп.
+ * Трек может быть выпущен "синглом" (<code>album == null</code>) или относиться
+ * к какому либо альбому или сборнику (но только к одному).
+ *
+ * @author antonch
+ * @since 02.09.2017
+ */
 @Entity
 public class Track {
 
@@ -79,7 +88,9 @@ public class Track {
 
 	@Override
 	public String toString() {
-		return "Track [id=" + id + ", composition=" + composition + ", songDate=" + songDate + ", album=" + album + ", singers=" + singers + "]";
+		return String
+				.format("Track [id=%d, composition=%s, songDate=%s, album=%s, singers=%s]",
+						id, composition, songDate, album, singers);
 	}
 
 	@Override

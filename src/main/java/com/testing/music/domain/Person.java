@@ -6,6 +6,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/**
+ * Объект <code>Person</code> отражает человека, который может выступать по
+ * отношению к другим сущностям как композитор, автор текста, сольный певец или
+ * участник группы.
+ * 
+ * @author antonch
+ * @since 02.09.2017
+ */
 @Entity
 public class Person {
 
@@ -37,7 +45,7 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return "Person [id=" + id + ", name=" + name + "]";
+		return String.format("Person [id=%d, name=%s]", id, name);
 	}
 
 	@Override

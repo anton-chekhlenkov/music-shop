@@ -16,6 +16,18 @@ import javax.persistence.ManyToMany;
 
 import com.testing.music.common.SingerType;
 
+/**
+ * Объект <code>Singer</code> абстрагирует понятие исполнителя трека. Это может
+ * быть сольный певец или группа. Тип солист/группа определяется полем
+ * <code>singerType</code>. Состав группы на конкретный момент времени
+ * определяется сущностью <code>SingerStructure</code>. Для солиста поле
+ * <code>name</code> объекта <code>Singer</code> может быть пустым или содержать
+ * сценический псевдоним, а <code>SingerStructure</code> должна связывать данный
+ * объект только с одним объектом <code>Person</code>.
+ * 
+ * @author antonch
+ * @since 02.09.2017
+ */
 @Entity
 public class Singer {
 
@@ -71,7 +83,9 @@ public class Singer {
 
 	@Override
 	public String toString() {
-		return "Singer [id=" + id + ", name=" + name + ", singerType=" + singerType + "]";
+		return String.format(
+				"Singer [id=%d, name=%s, singerType=%s, tracks=%s]", id, name,
+				singerType, tracks);
 	}
 
 	@Override
@@ -86,8 +100,8 @@ public class Singer {
 		if (other == null || getClass() != other.getClass())
 			return false;
 
-		Singer otherSigner = (Singer) other;
-		return id == otherSigner.id;
+		Singer otherSinger = (Singer) other;
+		return id == otherSinger.id;
 	}
 
 }

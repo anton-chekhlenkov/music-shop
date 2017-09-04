@@ -9,6 +9,16 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+/**
+ * Объект определяет отношения между объектами <code>Singer</code> и
+ * <code>Person</code>. Например, если исполнитель <code>Singer</code> является
+ * группой, то <code>SingerStructure</code> будет содержать несколько записей со
+ * ссылкой на эту группу, в каждой из которых будет указан конкретный её
+ * участник <code>Person</code> с датами начала и завершения участия в ней.
+ * 
+ * @author antonch
+ * @since 02.09.2017
+ */
 @Entity
 public class SingerStructure {
 
@@ -73,7 +83,9 @@ public class SingerStructure {
 
 	@Override
 	public String toString() {
-		return "SingerStructure [id=" + id + ", singer=" + singer + ", person=" + person + ", dateFrom=" + dateFrom + ", dateTill=" + dateTill + "]";
+		return String
+				.format("SingerStructure [id=%d, singer=%s, person=%s, dateFrom=%s, dateTill=%s]",
+						id, singer, person, dateFrom, dateTill);
 	}
 
 	@Override

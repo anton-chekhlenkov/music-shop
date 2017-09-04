@@ -9,6 +9,16 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+/**
+ * Данная сущность представляет альбом или сборник, к которому может относиться
+ * конкретный трек <code>Track</code>. Если альбом в треке не указан (
+ * <code>null</code>), то трек считается "синглом". Если у объекта
+ * <code>Album</code> не указан исполнитель (<code>singer</code>), то это
+ * сборник.
+ * 
+ * @author antonch
+ * @since 02.09.2017
+ */
 @Entity
 public class Album {
 
@@ -61,7 +71,9 @@ public class Album {
 
 	@Override
 	public String toString() {
-		return "Album [id=" + id + ", name=" + name + ", singer=" + singer + ", releaseDate=" + releaseDate + "]";
+		return String.format(
+				"Album [id=%d, name=%s, singer=%s, releaseDate=%s]", id, name,
+				singer, releaseDate);
 	}
 
 	@Override

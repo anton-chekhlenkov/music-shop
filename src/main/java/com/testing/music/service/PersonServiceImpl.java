@@ -9,6 +9,12 @@ import com.google.common.collect.Lists;
 import com.testing.music.domain.Person;
 import com.testing.music.repository.PersonRepository;
 
+/**
+ * Реализация сервиса для работы с сущностями <code>Person</code>.
+ * 
+ * @author antonch
+ * @since 02.09.2017
+ */
 @Service
 public class PersonServiceImpl implements PersonService {
 

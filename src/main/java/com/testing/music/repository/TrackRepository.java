@@ -5,6 +5,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.testing.music.domain.Track;
 
+/**
+ * Интерфейс репозитория для <code>Track</code>.
+ * 
+ * @author antonch
+ * @since 02.09.2017
+ */
 @Transactional
 public interface TrackRepository extends CrudRepository<Track, Integer> {
 
