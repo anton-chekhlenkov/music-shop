@@ -15,10 +15,13 @@ public class Album {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	private String name;
+	
 	@ManyToOne
 	@JoinColumn(name = "singer_id", nullable = true)
 	private Singer singer;
+	
 	private Calendar releaseDate;
 
 	protected Album() {
@@ -49,6 +52,20 @@ public class Album {
 	@Override
 	public String toString() {
 		return "Album [id=" + id + ", name=" + name + ", singer=" + singer + ", releaseDate=" + releaseDate + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return id;
+	}
+
+	@Override
+	public boolean equals(Object other) {
+        if (this == other) return true;
+        if (other == null || getClass() != other.getClass()) return false;
+
+        Album otherAlbum = (Album) other;
+        return id == otherAlbum.id;
 	}
 
 }
