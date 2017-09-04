@@ -11,5 +11,5 @@ public class Success<T> extends Result {
 	public T getValue() {
 		return value;
 	}
-	
+
 }

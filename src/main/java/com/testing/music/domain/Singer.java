@@ -22,39 +22,51 @@ public class Singer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	@Column(nullable = true)
 	private String name;
-	
+
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
 	private SingerType singerType;
-	
+
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(
-			name = "track_singer", 
-			joinColumns = @JoinColumn(name = "singer_id", nullable = false, updatable = false), 
-			inverseJoinColumns = @JoinColumn(name = "track_id", nullable = false, updatable = false))
+	@JoinTable(name = "track_singer", joinColumns = @JoinColumn(name = "singer_id", nullable = false, updatable = false), inverseJoinColumns = @JoinColumn(name = "track_id", nullable = false, updatable = false))
 	private List<Track> tracks;
 
-	protected Singer() {
-	}
-
-	public Singer(String name, SingerType signerType) {
-		this.name = name;
-		this.singerType = signerType;
+	public Singer() {
 	}
 
 	public int getId() {
 		return id;
 	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getName() {
 		return name;
 	}
 
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public SingerType getSingerType() {
 		return singerType;
+	}
+
+	public void setSingerType(SingerType singerType) {
+		this.singerType = singerType;
+	}
+
+	public List<Track> getTracks() {
+		return tracks;
+	}
+
+	public void setTracks(List<Track> tracks) {
+		this.tracks = tracks;
 	}
 
 	@Override
@@ -69,11 +81,13 @@ public class Singer {
 
 	@Override
 	public boolean equals(Object other) {
-        if (this == other) return true;
-        if (other == null || getClass() != other.getClass()) return false;
+		if (this == other)
+			return true;
+		if (other == null || getClass() != other.getClass())
+			return false;
 
-        Singer otherSigner = (Singer) other;
-        return id == otherSigner.id;
+		Singer otherSigner = (Singer) other;
+		return id == otherSigner.id;
 	}
 
 }

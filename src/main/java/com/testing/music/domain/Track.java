@@ -19,51 +19,62 @@ public class Track {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "composition_id", nullable = false, updatable = false)
 	private Composition composition;
-	
+
 	private Calendar songDate;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "album_id", nullable = true, updatable = false)
 	private Album album;
-	
+
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(
-			name = "track_singer", 
-			joinColumns = @JoinColumn(name = "track_id", nullable = false, updatable = false), 
-			inverseJoinColumns = @JoinColumn(name = "singer_id", nullable = false, updatable = false))
+	@JoinTable(name = "track_singer", joinColumns = @JoinColumn(name = "track_id", nullable = false, updatable = false), inverseJoinColumns = @JoinColumn(name = "singer_id", nullable = false, updatable = false))
 	private List<Singer> singers;
 
-	protected Track() {
-	}
-
-	public Track(Composition composition, Calendar songDate, Album album) {
-		this.composition = composition;
-		this.songDate = songDate;
-		this.album = album;
+	public Track() {
 	}
 
 	public int getId() {
 		return id;
 	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public Composition getComposition() {
 		return composition;
+	}
+
+	public void setComposition(Composition composition) {
+		this.composition = composition;
 	}
 
 	public Calendar getSongDate() {
 		return songDate;
 	}
 
+	public void setSongDate(Calendar songDate) {
+		this.songDate = songDate;
+	}
+
 	public Album getAlbum() {
 		return album;
 	}
 
+	public void setAlbum(Album album) {
+		this.album = album;
+	}
+
 	public List<Singer> getSingers() {
 		return singers;
+	}
+
+	public void setSingers(List<Singer> singers) {
+		this.singers = singers;
 	}
 
 	@Override
@@ -78,11 +89,13 @@ public class Track {
 
 	@Override
 	public boolean equals(Object other) {
-        if (this == other) return true;
-        if (other == null || getClass() != other.getClass()) return false;
+		if (this == other)
+			return true;
+		if (other == null || getClass() != other.getClass())
+			return false;
 
-        Track otherTrack = (Track) other;
-        return id == otherTrack.id;
+		Track otherTrack = (Track) other;
+		return id == otherTrack.id;
 	}
 
 }

@@ -12,23 +12,27 @@ public class Person {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	@Column(nullable = false, unique = true)
 	private String name;
 
-	protected Person() {
-	}
-
-	public Person(String name) {
-		this.name = name;
+	public Person() {
 	}
 
 	public int getId() {
 		return id;
 	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getName() {
 		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	@Override
@@ -43,11 +47,13 @@ public class Person {
 
 	@Override
 	public boolean equals(Object other) {
-        if (this == other) return true;
-        if (other == null || getClass() != other.getClass()) return false;
+		if (this == other)
+			return true;
+		if (other == null || getClass() != other.getClass())
+			return false;
 
-        Person otherPerson = (Person) other;
-        return id == otherPerson.id;
+		Person otherPerson = (Person) other;
+		return id == otherPerson.id;
 	}
 
 }
