@@ -13,10 +13,13 @@ public class Composition {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	private String name;
+	
 	@ManyToOne
 	@JoinColumn(name = "writer_id", nullable = false)
 	private Person writer;
+	
 	@ManyToOne
 	@JoinColumn(name = "composer_id", nullable = false)
 	private Person composer;
@@ -49,6 +52,20 @@ public class Composition {
 	@Override
 	public String toString() {
 		return "Composition [id=" + id + ", name=" + name + ", writer=" + writer + ", composer=" + composer + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return id;
+	}
+
+	@Override
+	public boolean equals(Object other) {
+        if (this == other) return true;
+        if (other == null || getClass() != other.getClass()) return false;
+
+        Composition otherComposition = (Composition) other;
+        return id == otherComposition.id;
 	}
 
 }

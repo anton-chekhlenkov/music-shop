@@ -15,13 +15,17 @@ public class SingerStructure {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	@ManyToOne
 	@JoinColumn(name = "singer_id", nullable = false)
 	private Singer singer;
+	
 	@ManyToOne
 	@JoinColumn(name = "person_id", nullable = false)
 	private Person person;
+	
 	private Calendar dateFrom;
+	
 	private Calendar dateTill;
 
 	protected SingerStructure() {
@@ -57,6 +61,20 @@ public class SingerStructure {
 	@Override
 	public String toString() {
 		return "SingerStructure [id=" + id + ", singer=" + singer + ", person=" + person + ", dateFrom=" + dateFrom + ", dateTill=" + dateTill + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return id;
+	}
+
+	@Override
+	public boolean equals(Object other) {
+        if (this == other) return true;
+        if (other == null || getClass() != other.getClass()) return false;
+
+        SingerStructure otherSingerStructure = (SingerStructure) other;
+        return id == otherSingerStructure.id;
 	}
 
 }

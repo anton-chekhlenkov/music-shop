@@ -1,4 +1,4 @@
-package com.testing.music;
+package com.testing.music.common;
 
 public enum SingerType {
 	GROUP, PERSON

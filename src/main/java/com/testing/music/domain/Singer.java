@@ -14,7 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
-import com.testing.music.SingerType;
+import com.testing.music.common.SingerType;
 
 @Entity
 public class Singer {
@@ -22,11 +22,14 @@ public class Singer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	@Column(nullable = true)
 	private String name;
+	
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
 	private SingerType singerType;
+	
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(
 			name = "track_singer", 
@@ -57,6 +60,20 @@ public class Singer {
 	@Override
 	public String toString() {
 		return "Singer [id=" + id + ", name=" + name + ", singerType=" + singerType + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return id;
+	}
+
+	@Override
+	public boolean equals(Object other) {
+        if (this == other) return true;
+        if (other == null || getClass() != other.getClass()) return false;
+
+        Singer otherSigner = (Singer) other;
+        return id == otherSigner.id;
 	}
 
 }

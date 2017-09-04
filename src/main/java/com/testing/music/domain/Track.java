@@ -19,13 +19,17 @@ public class Track {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	@ManyToOne
 	@JoinColumn(name = "composition_id", nullable = false, updatable = false)
 	private Composition composition;
+	
 	private Calendar songDate;
+	
 	@ManyToOne
 	@JoinColumn(name = "album_id", nullable = true, updatable = false)
 	private Album album;
+	
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(
 			name = "track_singer", 
@@ -65,6 +69,20 @@ public class Track {
 	@Override
 	public String toString() {
 		return "Track [id=" + id + ", composition=" + composition + ", songDate=" + songDate + ", album=" + album + ", singers=" + singers + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return id;
+	}
+
+	@Override
+	public boolean equals(Object other) {
+        if (this == other) return true;
+        if (other == null || getClass() != other.getClass()) return false;
+
+        Track otherTrack = (Track) other;
+        return id == otherTrack.id;
 	}
 
 }
