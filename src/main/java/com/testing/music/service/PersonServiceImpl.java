@@ -26,17 +26,8 @@ public class PersonServiceImpl implements PersonService {
 	}
 
 	@Override
-	public List<Person> getByName(String name) {
-		return this.repository.findByName(name);
-	}
-
-	@Override
 	public List<Person> getAll() {
 		return Lists.newArrayList(this.repository.findAll());
 	}
 
-	@Override
-	public Person create(Person person) {
-		return this.repository.save(person);
-	}
 }

@@ -1,7 +1,9 @@
 package com.testing.music.domain;
 
 import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -13,7 +15,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.testing.music.common.SingerType;
 
 /**
@@ -42,9 +46,14 @@ public class Singer {
 	@Column(nullable = false)
 	private SingerType singerType;
 
+	@JsonIgnore
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "track_singer", joinColumns = @JoinColumn(name = "singer_id", nullable = false, updatable = false), inverseJoinColumns = @JoinColumn(name = "track_id", nullable = false, updatable = false))
 	private List<Track> tracks;
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "singer", cascade = CascadeType.ALL)
+	private Set<SingerStructure> singerStructure;
 
 	public Singer() {
 	}
@@ -79,6 +88,14 @@ public class Singer {
 
 	public void setTracks(List<Track> tracks) {
 		this.tracks = tracks;
+	}
+
+	public Set<SingerStructure> getSingerStructure() {
+		return singerStructure;
+	}
+
+	public void setSingerStructure(Set<SingerStructure> singerStructure) {
+		this.singerStructure = singerStructure;
 	}
 
 	@Override

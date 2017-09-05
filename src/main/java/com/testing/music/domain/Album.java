@@ -1,13 +1,18 @@
 package com.testing.music.domain;
 
 import java.util.Calendar;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * Данная сущность представляет альбом или сборник, к которому может относиться
@@ -31,6 +36,10 @@ public class Album {
 	@ManyToOne
 	@JoinColumn(name = "singer_id", nullable = true)
 	private Singer singer;
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "album", cascade = CascadeType.ALL)
+	private Set<Track> tracks;
 
 	private Calendar releaseDate;
 
@@ -67,6 +76,14 @@ public class Album {
 
 	public void setReleaseDate(Calendar releaseDate) {
 		this.releaseDate = releaseDate;
+	}
+
+	public Set<Track> getTracks() {
+		return tracks;
+	}
+
+	public void setTracks(Set<Track> tracks) {
+		this.tracks = tracks;
 	}
 
 	@Override

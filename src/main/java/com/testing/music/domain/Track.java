@@ -13,6 +13,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * Трек <code>Track</code> является результатом исполнения(выпуска) некоторой
  * композиции каким либо солистом, группой или комбинацией солистов и/или групп.
@@ -39,6 +41,7 @@ public class Track {
 	@JoinColumn(name = "album_id", nullable = true, updatable = false)
 	private Album album;
 
+	@JsonIgnore
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "track_singer", joinColumns = @JoinColumn(name = "track_id", nullable = false, updatable = false), inverseJoinColumns = @JoinColumn(name = "singer_id", nullable = false, updatable = false))
 	private List<Singer> singers;
