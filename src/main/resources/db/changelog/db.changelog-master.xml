@@ -59,8 +59,8 @@
             <column autoIncrement="true" name="id" type="SERIAL">
                 <constraints primaryKey="true" primaryKeyName="singer_structure_pkey"/>
             </column>
-            <column name="date_from" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
-            <column name="date_till" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="date_from" type="TIMESTAMP(6) WITHOUT TIME ZONE" defaultValue="1970-01-01 00:00:00"/>
+            <column name="date_till" type="TIMESTAMP(6) WITHOUT TIME ZONE" defaultValue="3000-01-01 00:00:00"/>
             <column name="person_id" type="INT">
                 <constraints nullable="false"/>
             </column>
