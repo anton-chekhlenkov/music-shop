@@ -389,29 +389,29 @@
 			<column name="id" type="integer" value="26" />
 			<column name="singer_id" type="integer" value="16" />
 			<column name="person_id" type="integer" value="12" />
-			<column name="date_from" type="timestamp" value="2015-01-01" />
-			<column name="date_till" type="timestamp" value="2016-01-01" />
+			<column name="date_from" type="timestamp" value="2015-01-01 00:00:00" />
+			<column name="date_till" type="timestamp" value="2016-01-01 00:00:00" />
 		</insert>
 		<insert tableName="singer_structure">
 			<column name="id" type="integer" value="27" />
 			<column name="singer_id" type="integer" value="16" />
 			<column name="person_id" type="integer" value="15" />
-			<column name="date_from" type="timestamp" value="2015-01-01" />
-			<column name="date_till" type="timestamp" value="2017-01-01" />
+			<column name="date_from" type="timestamp" value="2015-01-01 00:00:00" />
+			<column name="date_till" type="timestamp" value="2017-01-01 00:00:00" />
 		</insert>
 		<insert tableName="singer_structure">
 			<column name="id" type="integer" value="28" />
 			<column name="singer_id" type="integer" value="17" />
 			<column name="person_id" type="integer" value="19" />
-			<column name="date_from" type="timestamp" value="2014-01-01" />
-			<column name="date_till" type="timestamp" value="2016-01-01" />
+			<column name="date_from" type="timestamp" value="2014-01-01 00:00:00" />
+			<column name="date_till" type="timestamp" value="2016-01-01 00:00:00" />
 		</insert>
 		<insert tableName="singer_structure">
 			<column name="id" type="integer" value="29" />
 			<column name="singer_id" type="integer" value="17" />
 			<column name="person_id" type="integer" value="22" />
-			<column name="date_from" type="timestamp" value="2014-01-01" />
-			<column name="date_till" type="timestamp" value="2016-01-01" />
+			<column name="date_from" type="timestamp" value="2014-01-01 00:00:00" />
+			<column name="date_till" type="timestamp" value="2016-01-01 00:00:00" />
 		</insert>
 		
 		<insert tableName="album">
@@ -634,31 +634,31 @@
 		<insert tableName="track">
 			<column name="id" type="integer" value="1" />
 			<column name="composition_id" type="integer" value="1" />
-			<column name="song_date" type="timestamp" value="2017-01-01" />
+			<column name="song_date" type="timestamp" value="2017-01-01 00:00:00" />
 			<column name="album_id" type="integer" value="1" />
 		</insert>
 		<insert tableName="track">
 			<column name="id" type="integer" value="2" />
 			<column name="composition_id" type="integer" value="2" />
-			<column name="song_date" type="timestamp" value="2017-01-02" />
+			<column name="song_date" type="timestamp" value="2017-01-02 00:00:00" />
 			<column name="album_id" type="integer" value="1" />
 		</insert>
 		<insert tableName="track">
 			<column name="id" type="integer" value="3" />
 			<column name="composition_id" type="integer" value="3" />
-			<column name="song_date" type="timestamp" value="2017-01-03" />
+			<column name="song_date" type="timestamp" value="2017-01-03 00:00:00" />
 			<column name="album_id" type="integer" value="1" />
 		</insert>
 		<insert tableName="track">
 			<column name="id" type="integer" value="4" />
 			<column name="composition_id" type="integer" value="4" />
-			<column name="song_date" type="timestamp" value="2017-01-04" />
+			<column name="song_date" type="timestamp" value="2017-01-04 00:00:00" />
 			<column name="album_id" type="integer" value="1" />
 		</insert>
 		<insert tableName="track">
 			<column name="id" type="integer" value="5" />
 			<column name="composition_id" type="integer" value="5" />
-			<column name="song_date" type="timestamp" value="2017-01-05" />
+			<column name="song_date" type="timestamp" value="2017-01-05 00:00:00" />
 			<column name="album_id" type="integer" value="1" />
 		</insert>
 		
@@ -687,27 +687,27 @@
 		<insert tableName="track">
 			<column name="id" type="integer" value="6" />
 			<column name="composition_id" type="integer" value="6" />
-			<column name="song_date" type="timestamp" value="2017-01-06" />
+			<column name="song_date" type="timestamp" value="2017-01-06 00:00:00" />
 		</insert>
 		<insert tableName="track">
 			<column name="id" type="integer" value="7" />
 			<column name="composition_id" type="integer" value="7" />
-			<column name="song_date" type="timestamp" value="2017-01-07" />
+			<column name="song_date" type="timestamp" value="2017-01-07 00:00:00" />
 		</insert>
 		<insert tableName="track">
 			<column name="id" type="integer" value="8" />
 			<column name="composition_id" type="integer" value="8" />
-			<column name="song_date" type="timestamp" value="2017-01-08" />
+			<column name="song_date" type="timestamp" value="2017-01-08 00:00:00" />
 		</insert>
 		<insert tableName="track">
 			<column name="id" type="integer" value="9" />
 			<column name="composition_id" type="integer" value="9" />
-			<column name="song_date" type="timestamp" value="2017-01-09" />
+			<column name="song_date" type="timestamp" value="2017-01-09 00:00:00" />
 		</insert>
 		<insert tableName="track">
 			<column name="id" type="integer" value="10" />
 			<column name="composition_id" type="integer" value="10" />
-			<column name="song_date" type="timestamp" value="2017-01-10" />
+			<column name="song_date" type="timestamp" value="2017-01-10 00:00:00" />
 		</insert>
 		
 		<insert tableName="track_singer">
@@ -735,31 +735,31 @@
 		<insert tableName="track">
 			<column name="id" type="integer" value="11" />
 			<column name="composition_id" type="integer" value="11" />
-			<column name="song_date" type="timestamp" value="2017-01-11" />
+			<column name="song_date" type="timestamp" value="2017-01-11 00:00:00" />
 			<column name="album_id" type="integer" value="3" />
 		</insert>
 		<insert tableName="track">
 			<column name="id" type="integer" value="12" />
 			<column name="composition_id" type="integer" value="12" />
-			<column name="song_date" type="timestamp" value="2017-01-12" />
+			<column name="song_date" type="timestamp" value="2017-01-12 00:00:00" />
 			<column name="album_id" type="integer" value="3" />
 		</insert>
 		<insert tableName="track">
 			<column name="id" type="integer" value="13" />
 			<column name="composition_id" type="integer" value="13" />
-			<column name="song_date" type="timestamp" value="2017-01-13" />
+			<column name="song_date" type="timestamp" value="2017-01-13 00:00:00" />
 			<column name="album_id" type="integer" value="3" />
 		</insert>
 		<insert tableName="track">
 			<column name="id" type="integer" value="14" />
 			<column name="composition_id" type="integer" value="14" />
-			<column name="song_date" type="timestamp" value="2017-01-14" />
+			<column name="song_date" type="timestamp" value="2017-01-14 00:00:00" />
 			<column name="album_id" type="integer" value="3" />
 		</insert>
 		<insert tableName="track">
 			<column name="id" type="integer" value="15" />
 			<column name="composition_id" type="integer" value="15" />
-			<column name="song_date" type="timestamp" value="2017-01-15" />
+			<column name="song_date" type="timestamp" value="2017-01-15 00:00:00" />
 			<column name="album_id" type="integer" value="3" />
 		</insert>
 		
@@ -788,27 +788,27 @@
 		<insert tableName="track">
 			<column name="id" type="integer" value="16" />
 			<column name="composition_id" type="integer" value="1" />
-			<column name="song_date" type="timestamp" value="2017-01-16" />
+			<column name="song_date" type="timestamp" value="2017-01-16 00:00:00" />
 		</insert>
 		<insert tableName="track">
 			<column name="id" type="integer" value="17" />
 			<column name="composition_id" type="integer" value="2" />
-			<column name="song_date" type="timestamp" value="2017-01-17" />
+			<column name="song_date" type="timestamp" value="2017-01-17 00:00:00" />
 		</insert>
 		<insert tableName="track">
 			<column name="id" type="integer" value="18" />
 			<column name="composition_id" type="integer" value="3" />
-			<column name="song_date" type="timestamp" value="2017-01-18" />
+			<column name="song_date" type="timestamp" value="2017-01-18 00:00:00" />
 		</insert>
 		<insert tableName="track">
 			<column name="id" type="integer" value="19" />
 			<column name="composition_id" type="integer" value="4" />
-			<column name="song_date" type="timestamp" value="2017-01-19" />
+			<column name="song_date" type="timestamp" value="2017-01-19 00:00:00" />
 		</insert>
 		<insert tableName="track">
 			<column name="id" type="integer" value="20" />
 			<column name="composition_id" type="integer" value="5" />
-			<column name="song_date" type="timestamp" value="2017-01-20" />
+			<column name="song_date" type="timestamp" value="2017-01-20 00:00:00" />
 		</insert>
 		
 		<insert tableName="track_singer">
@@ -836,61 +836,61 @@
 		<insert tableName="track">
 			<column name="id" type="integer" value="21" />
 			<column name="composition_id" type="integer" value="1" />
-			<column name="song_date" type="timestamp" value="2017-01-11" />
+			<column name="song_date" type="timestamp" value="2017-01-11 00:00:00" />
 			<column name="album_id" type="integer" value="5" />
 		</insert>
 		<insert tableName="track">
 			<column name="id" type="integer" value="22" />
 			<column name="composition_id" type="integer" value="2" />
-			<column name="song_date" type="timestamp" value="2017-01-12" />
+			<column name="song_date" type="timestamp" value="2017-01-12 00:00:00" />
 			<column name="album_id" type="integer" value="5" />
 		</insert>
 		<insert tableName="track">
 			<column name="id" type="integer" value="23" />
 			<column name="composition_id" type="integer" value="3" />
-			<column name="song_date" type="timestamp" value="2017-01-13" />
+			<column name="song_date" type="timestamp" value="2017-01-13 00:00:00" />
 			<column name="album_id" type="integer" value="5" />
 		</insert>
 		<insert tableName="track">
 			<column name="id" type="integer" value="24" />
 			<column name="composition_id" type="integer" value="4" />
-			<column name="song_date" type="timestamp" value="2017-01-14" />
+			<column name="song_date" type="timestamp" value="2017-01-14 00:00:00" />
 			<column name="album_id" type="integer" value="5" />
 		</insert>
 		<insert tableName="track">
 			<column name="id" type="integer" value="25" />
 			<column name="composition_id" type="integer" value="5" />
-			<column name="song_date" type="timestamp" value="2017-01-15" />
+			<column name="song_date" type="timestamp" value="2017-01-15 00:00:00" />
 			<column name="album_id" type="integer" value="5" />
 		</insert>
 		<insert tableName="track">
 			<column name="id" type="integer" value="26" />
 			<column name="composition_id" type="integer" value="6" />
-			<column name="song_date" type="timestamp" value="2017-01-11" />
+			<column name="song_date" type="timestamp" value="2017-01-11 00:00:00" />
 			<column name="album_id" type="integer" value="5" />
 		</insert>
 		<insert tableName="track">
 			<column name="id" type="integer" value="27" />
 			<column name="composition_id" type="integer" value="7" />
-			<column name="song_date" type="timestamp" value="2017-01-12" />
+			<column name="song_date" type="timestamp" value="2017-01-12 00:00:00" />
 			<column name="album_id" type="integer" value="5" />
 		</insert>
 		<insert tableName="track">
 			<column name="id" type="integer" value="28" />
 			<column name="composition_id" type="integer" value="8" />
-			<column name="song_date" type="timestamp" value="2017-01-13" />
+			<column name="song_date" type="timestamp" value="2017-01-13 00:00:00" />
 			<column name="album_id" type="integer" value="5" />
 		</insert>
 		<insert tableName="track">
 			<column name="id" type="integer" value="29" />
 			<column name="composition_id" type="integer" value="9" />
-			<column name="song_date" type="timestamp" value="2017-01-14" />
+			<column name="song_date" type="timestamp" value="2017-01-14 00:00:00" />
 			<column name="album_id" type="integer" value="5" />
 		</insert>
 		<insert tableName="track">
 			<column name="id" type="integer" value="30" />
 			<column name="composition_id" type="integer" value="10" />
-			<column name="song_date" type="timestamp" value="2017-01-15" />
+			<column name="song_date" type="timestamp" value="2017-01-15 00:00:00" />
 			<column name="album_id" type="integer" value="5" />
 		</insert>
 		

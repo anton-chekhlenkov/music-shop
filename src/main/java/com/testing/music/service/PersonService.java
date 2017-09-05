@@ -14,4 +14,8 @@ public interface PersonService {
 
 	List<Person> getAll();
 
+	List<Person> getAllComposers();
+
+	List<Person> getAllWriters();
+
 }

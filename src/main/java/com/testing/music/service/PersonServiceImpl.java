@@ -30,4 +30,14 @@ public class PersonServiceImpl implements PersonService {
 		return Lists.newArrayList(this.repository.findAll());
 	}
 
+	@Override
+	public List<Person> getAllComposers() {
+		return Lists.newArrayList(this.repository.getAllComposers());
+	}
+
+	@Override
+	public List<Person> getAllWriters() {
+		return Lists.newArrayList(this.repository.getAllWriters());
+	}
+
 }

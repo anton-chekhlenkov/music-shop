@@ -1,10 +1,16 @@
 package com.testing.music.domain;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * Объект <code>Person</code> отражает человека, который может выступать по
@@ -23,6 +29,14 @@ public class Person {
 
 	@Column(nullable = false, unique = true)
 	private String name;
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "writer", cascade = CascadeType.ALL)
+	private Set<Composition> writedCompositions;
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "composer", cascade = CascadeType.ALL)
+	private Set<Composition> composedCompositions;
 
 	public Person() {
 	}
