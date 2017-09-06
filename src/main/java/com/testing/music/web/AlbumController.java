@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.testing.music.domain.Album;
-import com.testing.music.domain.Composition;
 import com.testing.music.service.AlbumService;
 
 /**
@@ -41,9 +40,7 @@ public class AlbumController {
 	@GetMapping("/byCompositionId/{compositionId}")
 	public ResponseEntity<List<Album>> getSingersByComposition(
 			@PathVariable int compositionId) {
-		Composition cmp = new Composition();
-		cmp.setId(compositionId);
-		return new ResponseEntity(this.albums.getByComposition(cmp),
+		return new ResponseEntity(this.albums.getByCompositionId(compositionId),
 				HttpStatus.OK);
 	}
 

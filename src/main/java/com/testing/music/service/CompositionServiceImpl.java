@@ -7,8 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.google.common.collect.Lists;
 import com.testing.music.domain.Composition;
-import com.testing.music.domain.Person;
-import com.testing.music.domain.Singer;
 import com.testing.music.repository.CompositionRepository;
 
 /**
@@ -33,18 +31,18 @@ public class CompositionServiceImpl implements CompositionService {
 	}
 
 	@Override
-	public List<Composition> getByComposer(Person composer) {
-		return this.repository.findByComposer(composer);
+	public List<Composition> getByComposerId(int composerId) {
+		return this.repository.findByComposerId(composerId);
 	}
 
 	@Override
-	public List<Composition> getByWriter(Person writer) {
-		return this.repository.findByWriter(writer);
+	public List<Composition> getByWriterId(int writerId) {
+		return this.repository.findByWriterId(writerId);
 	}
 
 	@Override
-	public List<Composition> getBySinger(Singer singer) {
-		return this.repository.getBySinger(singer.getId());
+	public List<Composition> getBySingerId(int singerId) {
+		return this.repository.getBySingerId(singerId);
 	}
 
 }

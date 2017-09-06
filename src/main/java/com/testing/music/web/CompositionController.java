@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.testing.music.domain.Composition;
 import com.testing.music.domain.Person;
-import com.testing.music.domain.Singer;
 import com.testing.music.service.CompositionService;
 
 /**
@@ -44,25 +43,21 @@ public class CompositionController {
 			@PathVariable int composerId) {
 		Person composer = new Person();
 		composer.setId(composerId);
-		return new ResponseEntity(this.compositions.getByComposer(composer),
-				HttpStatus.OK);
+		return new ResponseEntity(
+				this.compositions.getByComposerId(composerId), HttpStatus.OK);
 	}
 
 	@GetMapping("/byWriter/{writerId}")
 	public ResponseEntity<List<Composition>> getByWriter(
 			@PathVariable int writerId) {
-		Person writer = new Person();
-		writer.setId(writerId);
-		return new ResponseEntity(this.compositions.getByWriter(writer),
+		return new ResponseEntity(this.compositions.getByWriterId(writerId),
 				HttpStatus.OK);
 	}
 
 	@GetMapping("/bySinger/{singerId}")
 	public ResponseEntity<List<Composition>> getBySinger(
 			@PathVariable int singerId) {
-		Singer singer = new Singer();
-		singer.setId(singerId);
-		return new ResponseEntity(this.compositions.getBySinger(singer),
+		return new ResponseEntity(this.compositions.getBySingerId(singerId),
 				HttpStatus.OK);
 	}
 

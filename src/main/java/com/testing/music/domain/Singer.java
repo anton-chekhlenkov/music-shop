@@ -58,6 +58,13 @@ public class Singer {
 	public Singer() {
 	}
 
+	public Singer(int id, String name, SingerType singerType) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.singerType = singerType;
+	}
+
 	public int getId() {
 		return id;
 	}

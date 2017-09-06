@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.google.common.collect.Lists;
-import com.testing.music.domain.Composition;
-import com.testing.music.domain.Person;
 import com.testing.music.domain.Singer;
 import com.testing.music.repository.SingerRepository;
 
@@ -33,13 +31,13 @@ public class SingerServiceImpl implements SingerService {
 	}
 
 	@Override
-	public List<Singer> getByComposition(Composition composition) {
-		return this.repository.getByComposition(composition);
+	public List<Singer> getByCompositionId(int compositionId) {
+		return this.repository.getByCompositionId(compositionId);
 	}
 
 	@Override
-	public List<Singer> getGroupsByPerson(Person person) {
-		return this.repository.getGroupsByPerson(person);
+	public List<Singer> getGroupsByPersonId(int personId) {
+		return this.repository.getGroupsByPersonId(personId);
 	}
 
 }

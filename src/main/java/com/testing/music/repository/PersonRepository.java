@@ -21,8 +21,6 @@ public interface PersonRepository extends CrudRepository<Person, Integer> {
 
 	String Q_GET_ALL_WRITERS = "SELECT p FROM Person p INNER JOIN p.writedCompositions";
 
-	List<Person> findByName(String name);
-
 	@Query(Q_GET_ALL_COMPOSERS)
 	List<Person> getAllComposers();
 

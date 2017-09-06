@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.testing.music.domain.Composition;
-import com.testing.music.domain.Person;
 import com.testing.music.domain.Singer;
 import com.testing.music.service.SingerService;
 
@@ -42,18 +40,14 @@ public class SingerController {
 	@GetMapping("/byCompositionId/{compositionId}")
 	public ResponseEntity<List<Singer>> getSingersByComposition(
 			@PathVariable int compositionId) {
-		Composition cmp = new Composition();
-		cmp.setId(compositionId);
-		return new ResponseEntity(this.singers.getByComposition(cmp),
-				HttpStatus.OK);
+		return new ResponseEntity(
+				this.singers.getByCompositionId(compositionId), HttpStatus.OK);
 	}
 
 	@GetMapping("/groupsByPersonId/{personId}")
 	public ResponseEntity<List<Singer>> getGroupsByPerson(
 			@PathVariable int personId) {
-		Person person = new Person();
-		person.setId(personId);
-		return new ResponseEntity(this.singers.getGroupsByPerson(person),
+		return new ResponseEntity(this.singers.getGroupsByPersonId(personId),
 				HttpStatus.OK);
 	}
 

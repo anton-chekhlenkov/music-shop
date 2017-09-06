@@ -2,8 +2,6 @@ package com.testing.music.service;
 
 import java.util.List;
 
-import com.testing.music.domain.Composition;
-import com.testing.music.domain.Person;
 import com.testing.music.domain.Singer;
 
 /**
@@ -16,8 +14,8 @@ public interface SingerService {
 
 	List<Singer> getAll();
 
-	List<Singer> getByComposition(Composition composition);
+	List<Singer> getByCompositionId(int compositionId);
 
-	List<Singer> getGroupsByPerson(Person person);
+	List<Singer> getGroupsByPersonId(int personId);
 
 }

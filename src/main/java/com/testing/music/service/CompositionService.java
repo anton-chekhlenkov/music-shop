@@ -3,8 +3,6 @@ package com.testing.music.service;
 import java.util.List;
 
 import com.testing.music.domain.Composition;
-import com.testing.music.domain.Person;
-import com.testing.music.domain.Singer;
 
 /**
  * Интерфейс сервиса для работы с сущностями <code>Composition</code>.
@@ -16,10 +14,10 @@ public interface CompositionService {
 
 	List<Composition> getAll();
 
-	List<Composition> getByComposer(Person composer);
+	List<Composition> getByComposerId(int composerId);
 
-	List<Composition> getByWriter(Person composer);
+	List<Composition> getByWriterId(int writerId);
 
-	List<Composition> getBySinger(Singer composer);
+	List<Composition> getBySingerId(int singerId);
 
 }

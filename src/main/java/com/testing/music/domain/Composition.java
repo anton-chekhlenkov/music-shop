@@ -48,6 +48,14 @@ public class Composition {
 	public Composition() {
 	}
 
+	public Composition(int id, String name, Person writer, Person composer) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.writer = writer;
+		this.composer = composer;
+	}
+
 	public int getId() {
 		return id;
 	}

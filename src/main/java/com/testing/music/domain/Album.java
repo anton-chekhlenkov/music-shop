@@ -46,6 +46,14 @@ public class Album {
 	public Album() {
 	}
 
+	public Album(int id, String name, Singer singer, Calendar releaseDate) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.singer = singer;
+		this.releaseDate = releaseDate;
+	}
+
 	public int getId() {
 		return id;
 	}

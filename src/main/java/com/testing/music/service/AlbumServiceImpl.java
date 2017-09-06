@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.google.common.collect.Lists;
 import com.testing.music.domain.Album;
-import com.testing.music.domain.Composition;
 import com.testing.music.repository.AlbumRepository;
 
 /**
@@ -32,8 +31,8 @@ public class AlbumServiceImpl implements AlbumService {
 	}
 
 	@Override
-	public List<Album> getByComposition(Composition composition) {
-		return this.repository.getByComposition(composition);
+	public List<Album> getByCompositionId(int compositionId) {
+		return this.repository.getByCompositionId(compositionId);
 	}
 
 }
