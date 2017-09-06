@@ -6,6 +6,7 @@ import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.BDDMockito;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -18,6 +19,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.testing.music.common.SingerType;
 import com.testing.music.domain.Singer;
+import com.testing.music.repository.SingerRepository;
 import com.testing.music.service.SingerService;
 import com.testing.music.web.SingerController;
 
@@ -30,7 +32,12 @@ public class SingerControllerTest {
 
 	@MockBean
 	private SingerService singers;
-	
+
+	@Mock
+	private SingerRepository singersRepository;
+
+	private final ObjectMapper mapper = new ObjectMapper();
+
 	@Test
 	public void getAllSingers() throws Exception {
 
@@ -39,7 +46,6 @@ public class SingerControllerTest {
 		);
 		BDDMockito.given(this.singers.getAll()).willReturn(list);
 
-		ObjectMapper mapper = new ObjectMapper();
 		this.mvc.perform(
 				MockMvcRequestBuilders.get("/singer/").accept(MediaType.APPLICATION_JSON_UTF8)
 		).andExpect(

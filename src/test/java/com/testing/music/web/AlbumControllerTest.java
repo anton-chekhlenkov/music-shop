@@ -33,6 +33,8 @@ public class AlbumControllerTest {
 	@MockBean
 	private AlbumService albums;
 
+	private final ObjectMapper mapper = new ObjectMapper();
+
 	@Test
 	public void getAllAlbums() throws Exception {
 
@@ -41,7 +43,6 @@ public class AlbumControllerTest {
 		);
 		BDDMockito.given(this.albums.getAll()).willReturn(list);
 
-		ObjectMapper mapper = new ObjectMapper();
 		this.mvc.perform(
 				MockMvcRequestBuilders.get("/album/").accept(MediaType.APPLICATION_JSON_UTF8)
 		).andExpect(

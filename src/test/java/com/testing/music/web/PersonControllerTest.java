@@ -30,6 +30,8 @@ public class PersonControllerTest {
 	@MockBean
 	private PersonService persons;
 
+	private final ObjectMapper mapper = new ObjectMapper();
+
 	@Test
 	public void getAllPersons() throws Exception {
 
@@ -38,7 +40,6 @@ public class PersonControllerTest {
 		);
 		BDDMockito.given(this.persons.getAll()).willReturn(list);
 
-		ObjectMapper mapper = new ObjectMapper();
 		this.mvc.perform(
 				MockMvcRequestBuilders.get("/person/").accept(MediaType.APPLICATION_JSON_UTF8)
 		).andExpect(
@@ -57,7 +58,6 @@ public class PersonControllerTest {
 		);
 		BDDMockito.given(this.persons.getAllWriters()).willReturn(list);
 
-		ObjectMapper mapper = new ObjectMapper();
 		this.mvc.perform(
 				MockMvcRequestBuilders.get("/person/writers/").accept(MediaType.APPLICATION_JSON_UTF8)
 		).andExpect(
@@ -76,7 +76,6 @@ public class PersonControllerTest {
 		);
 		BDDMockito.given(this.persons.getAllComposers()).willReturn(list);
 
-		ObjectMapper mapper = new ObjectMapper();
 		this.mvc.perform(
 				MockMvcRequestBuilders.get("/person/composers/").accept(MediaType.APPLICATION_JSON_UTF8)
 		).andExpect(

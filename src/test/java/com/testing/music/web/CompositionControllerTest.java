@@ -31,6 +31,8 @@ public class CompositionControllerTest {
 	@MockBean
 	private CompositionService compositions;
 
+	private final ObjectMapper mapper = new ObjectMapper();
+
 	@Test
 	public void getAllCompositions() throws Exception {
 
@@ -39,7 +41,6 @@ public class CompositionControllerTest {
 		);
 		BDDMockito.given(this.compositions.getAll()).willReturn(list);
 
-		ObjectMapper mapper = new ObjectMapper();
 		this.mvc.perform(
 				MockMvcRequestBuilders.get("/composition/").accept(MediaType.APPLICATION_JSON_UTF8)
 		).andExpect(
