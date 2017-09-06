@@ -1,4 +1,4 @@
-package com.testing.music.web.tests;
+package com.testing.music.web;
 
 import java.util.Calendar;
 import java.util.Collections;

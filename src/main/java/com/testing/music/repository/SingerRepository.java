@@ -18,13 +18,22 @@ import com.testing.music.domain.Singer;
 @Transactional
 public interface SingerRepository extends CrudRepository<Singer, Integer> {
 
-	String Q_GET_BY_COMPOSITION = "SELECT s FROM Singer s INNER JOIN s.tracks t WHERE t.composition.id = :compositionId";
-	String Q_GET_GROUPS_BY_PERSON = "SELECT s FROM Singer s INNER JOIN s.singerStructure ss WHERE s.singerType = 'GROUP' and ss.person.id = :personId";
-
-	@Query(Q_GET_BY_COMPOSITION)
+	/**
+	 * Найти всех исполнителей которые исполняли композицию
+	 * 
+	 * @param compositionId
+	 * @return
+	 */
+	@Query("SELECT s FROM Singer s INNER JOIN s.tracks t WHERE t.composition.id = :compositionId")
 	List<Singer> getByCompositionId(@Param("compositionId") int compositionId);
 
-	@Query(Q_GET_GROUPS_BY_PERSON)
+	/**
+	 * Найти все группы в которых пел заданный исполнитель
+	 * 
+	 * @param personId
+	 * @return
+	 */
+	@Query("SELECT s FROM Singer s INNER JOIN s.singerStructure ss WHERE s.singerType = 'GROUP' and ss.person.id = :personId")
 	List<Singer> getGroupsByPersonId(@Param("personId") int personId);
 
 }

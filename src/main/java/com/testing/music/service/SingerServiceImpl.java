@@ -25,16 +25,25 @@ public class SingerServiceImpl implements SingerService {
 		this.repository = repository;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public List<Singer> getAll() {
 		return Lists.newArrayList(this.repository.findAll());
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public List<Singer> getByCompositionId(int compositionId) {
 		return this.repository.getByCompositionId(compositionId);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public List<Singer> getGroupsByPersonId(int personId) {
 		return this.repository.getGroupsByPersonId(personId);

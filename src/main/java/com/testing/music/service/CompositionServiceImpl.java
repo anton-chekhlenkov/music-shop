@@ -25,21 +25,33 @@ public class CompositionServiceImpl implements CompositionService {
 		this.repository = repository;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public List<Composition> getAll() {
 		return Lists.newArrayList(this.repository.findAll());
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public List<Composition> getByComposerId(int composerId) {
 		return this.repository.findByComposerId(composerId);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public List<Composition> getByWriterId(int writerId) {
 		return this.repository.findByWriterId(writerId);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public List<Composition> getBySingerId(int singerId) {
 		return this.repository.getBySingerId(singerId);

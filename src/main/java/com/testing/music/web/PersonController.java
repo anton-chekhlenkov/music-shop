@@ -33,16 +33,19 @@ public class PersonController {
 
 	@GetMapping("/")
 	public ResponseEntity<List<Person>> getAll() {
-		return new ResponseEntity(this.persons.getAll(), HttpStatus.OK);
+		return new ResponseEntity<List<Person>>(this.persons.getAll(),
+				HttpStatus.OK);
 	}
 
 	@GetMapping("/composers")
 	public ResponseEntity<List<Person>> getAllComposers() {
-		return new ResponseEntity(this.persons.getAllComposers(), HttpStatus.OK);
+		return new ResponseEntity<List<Person>>(this.persons.getAllComposers(),
+				HttpStatus.OK);
 	}
 
 	@GetMapping("/writers")
 	public ResponseEntity<List<Person>> getAllWriters() {
-		return new ResponseEntity(this.persons.getAllWriters(), HttpStatus.OK);
+		return new ResponseEntity<List<Person>>(this.persons.getAllWriters(),
+				HttpStatus.OK);
 	}
 }

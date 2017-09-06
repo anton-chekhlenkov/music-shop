@@ -17,14 +17,20 @@ import com.testing.music.domain.Person;
 @Transactional
 public interface PersonRepository extends CrudRepository<Person, Integer> {
 
-	String Q_GET_ALL_COMPOSERS = "SELECT p FROM Person p INNER JOIN p.composedCompositions";
-
-	String Q_GET_ALL_WRITERS = "SELECT p FROM Person p INNER JOIN p.writedCompositions";
-
-	@Query(Q_GET_ALL_COMPOSERS)
+	/**
+	 * Получить всех композиторов
+	 * 
+	 * @return
+	 */
+	@Query("SELECT p FROM Person p INNER JOIN p.composedCompositions")
 	List<Person> getAllComposers();
 
-	@Query(Q_GET_ALL_WRITERS)
+	/**
+	 * Получить всех авторов текстов
+	 * 
+	 * @return
+	 */
+	@Query("SELECT p FROM Person p INNER JOIN p.writedCompositions")
 	List<Person> getAllWriters();
 
 }

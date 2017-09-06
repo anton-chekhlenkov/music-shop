@@ -35,30 +35,29 @@ public class CompositionController {
 
 	@GetMapping("/")
 	public ResponseEntity<List<Composition>> getAll() {
-		return new ResponseEntity(this.compositions.getAll(), HttpStatus.OK);
+		return new ResponseEntity<List<Composition>>(
+				this.compositions.getAll(), HttpStatus.OK);
 	}
 
 	@GetMapping("/byComposer/{composerId}")
 	public ResponseEntity<List<Composition>> getByComposer(
 			@PathVariable int composerId) {
-		Person composer = new Person();
-		composer.setId(composerId);
-		return new ResponseEntity(
+		return new ResponseEntity<List<Composition>>(
 				this.compositions.getByComposerId(composerId), HttpStatus.OK);
 	}
 
 	@GetMapping("/byWriter/{writerId}")
 	public ResponseEntity<List<Composition>> getByWriter(
 			@PathVariable int writerId) {
-		return new ResponseEntity(this.compositions.getByWriterId(writerId),
-				HttpStatus.OK);
+		return new ResponseEntity<List<Composition>>(
+				this.compositions.getByWriterId(writerId), HttpStatus.OK);
 	}
 
 	@GetMapping("/bySinger/{singerId}")
 	public ResponseEntity<List<Composition>> getBySinger(
 			@PathVariable int singerId) {
-		return new ResponseEntity(this.compositions.getBySingerId(singerId),
-				HttpStatus.OK);
+		return new ResponseEntity<List<Composition>>(
+				this.compositions.getBySingerId(singerId), HttpStatus.OK);
 	}
 
 }

@@ -12,10 +12,27 @@ import com.testing.music.domain.Singer;
  */
 public interface SingerService {
 
+	/**
+	 * Список всех исполнителей
+	 * 
+	 * @return
+	 */
 	List<Singer> getAll();
 
+	/**
+	 * Найти всех исполнителей которые исполняли композицию
+	 * 
+	 * @param compositionId
+	 * @return
+	 */
 	List<Singer> getByCompositionId(int compositionId);
 
+	/**
+	 * Найти все группы в которых пел заданный исполнитель
+	 * 
+	 * @param personId
+	 * @return
+	 */
 	List<Singer> getGroupsByPersonId(int personId);
 
 }

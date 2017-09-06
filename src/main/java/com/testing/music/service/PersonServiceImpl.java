@@ -25,16 +25,25 @@ public class PersonServiceImpl implements PersonService {
 		this.repository = repository;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public List<Person> getAll() {
 		return Lists.newArrayList(this.repository.findAll());
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public List<Person> getAllComposers() {
 		return Lists.newArrayList(this.repository.getAllComposers());
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public List<Person> getAllWriters() {
 		return Lists.newArrayList(this.repository.getAllWriters());

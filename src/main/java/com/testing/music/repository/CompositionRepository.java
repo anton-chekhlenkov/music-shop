@@ -19,13 +19,29 @@ import com.testing.music.domain.Composition;
 public interface CompositionRepository extends
 		CrudRepository<Composition, Integer> {
 
-	String Q_GET_BY_SINGER = "SELECT c FROM Composition c INNER JOIN c.tracks t INNER JOIN t.singers ts WHERE ts.id = :singerId";
-
+	/**
+	 * Найти все композиции заданного композитора
+	 * 
+	 * @param composerId
+	 * @return
+	 */
 	List<Composition> findByComposerId(int composerId);
 
+	/**
+	 * Найти все композиции заданного автора
+	 * 
+	 * @param writerId
+	 * @return
+	 */
 	List<Composition> findByWriterId(int writerId);
 
-	@Query(Q_GET_BY_SINGER)
+	/**
+	 * Найти все композиции заданного исполнителя
+	 * 
+	 * @param singerId
+	 * @return
+	 */
+	@Query("SELECT c FROM Composition c INNER JOIN c.tracks t INNER JOIN t.singers ts WHERE ts.id = :singerId")
 	List<Composition> getBySingerId(@Param("singerId") int singerId);
 
 }

@@ -8,6 +8,9 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {
 
+	/**
+	 * Для сборки в war
+	 */
 	@Override
 	protected SpringApplicationBuilder configure(
 			SpringApplicationBuilder application) {

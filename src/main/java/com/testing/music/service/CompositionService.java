@@ -12,12 +12,35 @@ import com.testing.music.domain.Composition;
  */
 public interface CompositionService {
 
+	/**
+	 * Получить список всех композиций
+	 * 
+	 * @return
+	 */
 	List<Composition> getAll();
 
+	/**
+	 * Найти все композиции заданного композитора
+	 * 
+	 * @param composerId
+	 * @return
+	 */
 	List<Composition> getByComposerId(int composerId);
 
+	/**
+	 * Найти все композиции заданного автора
+	 * 
+	 * @param writerId
+	 * @return
+	 */
 	List<Composition> getByWriterId(int writerId);
 
+	/**
+	 * Найти все композиции заданного исполнителя
+	 * 
+	 * @param singerId
+	 * @return
+	 */
 	List<Composition> getBySingerId(int singerId);
 
 }

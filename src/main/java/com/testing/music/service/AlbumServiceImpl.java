@@ -25,11 +25,17 @@ public class AlbumServiceImpl implements AlbumService {
 		this.repository = repository;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public List<Album> getAll() {
 		return Lists.newArrayList(this.repository.findAll());
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public List<Album> getByCompositionId(int compositionId) {
 		return this.repository.getByCompositionId(compositionId);

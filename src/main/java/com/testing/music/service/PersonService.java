@@ -12,10 +12,25 @@ import com.testing.music.domain.Person;
  */
 public interface PersonService {
 
+	/**
+	 * Получить список всех людей
+	 * 
+	 * @return
+	 */
 	List<Person> getAll();
 
+	/**
+	 * Получить список всех композиторов
+	 * 
+	 * @return
+	 */
 	List<Person> getAllComposers();
 
+	/**
+	 * Получить список всех авторов текста
+	 * 
+	 * @return
+	 */
 	List<Person> getAllWriters();
 
 }

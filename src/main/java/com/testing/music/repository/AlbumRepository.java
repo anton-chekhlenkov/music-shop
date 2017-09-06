@@ -18,9 +18,13 @@ import com.testing.music.domain.Album;
 @Transactional
 public interface AlbumRepository extends CrudRepository<Album, Integer> {
 
-	String Q_GET_BY_COMPOSITION = "SELECT a FROM Album a INNER JOIN a.tracks t WHERE a.singer != null and t.composition.id = :compositionId";
-
-	@Query(Q_GET_BY_COMPOSITION)
+	/**
+	 * Найти все альбомы на которых издавалась заданная композиция
+	 * 
+	 * @param compositionId
+	 * @return
+	 */
+	@Query("SELECT a FROM Album a INNER JOIN a.tracks t WHERE a.singer != null and t.composition.id = :compositionId")
 	List<Album> getByCompositionId(@Param("compositionId") int compositionId);
 
 }

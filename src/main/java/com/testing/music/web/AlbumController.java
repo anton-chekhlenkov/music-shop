@@ -34,14 +34,15 @@ public class AlbumController {
 
 	@GetMapping("/")
 	public ResponseEntity<List<Album>> getAll() {
-		return new ResponseEntity(this.albums.getAll(), HttpStatus.OK);
+		return new ResponseEntity<List<Album>>(this.albums.getAll(),
+				HttpStatus.OK);
 	}
 
 	@GetMapping("/byCompositionId/{compositionId}")
 	public ResponseEntity<List<Album>> getSingersByComposition(
 			@PathVariable int compositionId) {
-		return new ResponseEntity(this.albums.getByCompositionId(compositionId),
-				HttpStatus.OK);
+		return new ResponseEntity<List<Album>>(
+				this.albums.getByCompositionId(compositionId), HttpStatus.OK);
 	}
 
 }

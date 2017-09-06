@@ -12,8 +12,19 @@ import com.testing.music.domain.Album;
  */
 public interface AlbumService {
 
+	/**
+	 * Получить полный список альбомов (включая сборники)
+	 * 
+	 * @return
+	 */
 	List<Album> getAll();
 
+	/**
+	 * Найти все альбомы на которых издавалась заданная композиция
+	 * 
+	 * @param compositionId
+	 * @return
+	 */
 	List<Album> getByCompositionId(int compositionId);
 
 }

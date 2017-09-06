@@ -34,21 +34,22 @@ public class SingerController {
 
 	@GetMapping("/")
 	public ResponseEntity<List<Singer>> getAll() {
-		return new ResponseEntity(this.singers.getAll(), HttpStatus.OK);
+		return new ResponseEntity<List<Singer>>(this.singers.getAll(),
+				HttpStatus.OK);
 	}
 
 	@GetMapping("/byCompositionId/{compositionId}")
 	public ResponseEntity<List<Singer>> getSingersByComposition(
 			@PathVariable int compositionId) {
-		return new ResponseEntity(
+		return new ResponseEntity<List<Singer>>(
 				this.singers.getByCompositionId(compositionId), HttpStatus.OK);
 	}
 
 	@GetMapping("/groupsByPersonId/{personId}")
 	public ResponseEntity<List<Singer>> getGroupsByPerson(
 			@PathVariable int personId) {
-		return new ResponseEntity(this.singers.getGroupsByPersonId(personId),
-				HttpStatus.OK);
+		return new ResponseEntity<List<Singer>>(
+				this.singers.getGroupsByPersonId(personId), HttpStatus.OK);
 	}
 
 }
